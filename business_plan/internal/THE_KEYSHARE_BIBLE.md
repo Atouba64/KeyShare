@@ -9,7 +9,7 @@ This document is the absolute source of truth for all KeyShare founders, develop
 KeyShare is a peer-to-peer (P2P) marketplace that acts as an escrow agent and technical proxy for digital subscription sharing. We call ourselves "The Negotiator."
 
 **Why are we building this? (The EdTech Arbitrage)**
-The tech hiring market is broken. It requires skills that cost thousands of dollars to acquire (via enterprise licenses like Pluralsight, AWS, JetBrains, Udemy Business). Meanwhile, students at universities like WGU have free access to these exact tools and use barely 20% of them. We are building the bridge. We allow the "Haves" to monetize their waste, and the "Have-Nots" to access premium resources affordably.
+The tech hiring and startup market is broken. It requires tools that cost thousands of dollars to acquire (via enterprise licenses like Pluralsight, AWS, JetBrains, ZoomInfo, SEMrush). Meanwhile, massive corporations and funded agencies have free access to these exact tools and use barely 20% of them. We are building the bridge. We allow the "Haves" to monetize their waste, and the "Have-Nots" to access premium resources affordably.
 
 ---
 
@@ -48,7 +48,7 @@ We take a cut of the transaction + a markup on the infrastructure.
 ### Tier 3: Gold (Remote Lab / VDI)
 *   **Tech:** Ephemeral Docker containers running Linux + Chrome + NoVNC (Kasm Workspaces).
 *   **Flow:** The Servicer logs into our container *once*. The session cookie is saved to a persistent Docker volume. When the Customer clicks "Connect", we spin up that specific container and stream the browser to their screen via WebRTC/HTML5 Canvas. 
-*   **Use Case:** WGU Single Sign-On (SSO), High-security Enterprise tools. The Customer never sees the password, and the platform sees a perfect, unchanging hardware fingerprint.
+*   **Use Case:** Corporate Single Sign-On (SSO), High-security Enterprise tools. The Customer never sees the password, and the platform sees a perfect, unchanging hardware fingerprint.
 
 ---
 
@@ -71,12 +71,12 @@ We take a cut of the transaction + a markup on the infrastructure.
 ### Q: How do we scale Tier 3 economically? VMs are expensive.
 **A:** We do *not* use full AWS EC2 instances per user. We use Dockerized Browser Isolation. A single $40/mo dedicated server (e.g., Hetzner or AWS bare metal) can run 30-50 simultaneous browser containers. Because Customers don't use the service 24/7, we aggressively hibernate containers after 15 minutes of inactivity.
 
-### Q: How does the WGU / SSO Arbitrage actually work?
-**A:** WGU uses Okta/Microsoft SSO. A student cannot give a stranger their SSO password, as it gives access to grades and financial aid. 
-Using **Tier 3**, the WGU student remotes into our container and logs into *just* Udemy Business via SSO. They close the window. The Customer pays $15/mo. When the Customer opens the container, they are looking at Udemy Business, authenticated as the student, but they cannot navigate backward to the WGU portal. It is completely ring-fenced.
+### Q: How does the Corporate / SSO Arbitrage actually work?
+**A:** Corporations use Okta/Microsoft SSO. An employee cannot give a stranger their SSO password, as it gives access to internal HR data and emails. 
+Using **Tier 3**, the corporate employee remotes into our container and logs into *just* the target app (e.g., Pluralsight) via SSO. They close the window. The Customer pays $15/mo. When the Customer opens the container, they are looking at Pluralsight, authenticated as the employee, but they cannot navigate backward to the corporate portal. It is completely ring-fenced.
 
 ### Q: Who sets the price?
 **A:** Free market dynamics. The Servicer sets their base asking price (e.g., $10/mo). KeyShare dynamically adds the infrastructure fee (e.g., +$8 for Tier 3) and commission (+15%). The Customer sees the final bundled price ($19.50/mo).
 
 ### Q: What is our ultimate endgame?
-**A:** Phase 1 is the Grey Market (Netflix, Spotify). Phase 2 is the EdTech Arbitrage (WGU, Enterprise). Phase 3 is becoming a legitimate B2B infrastructure provider where companies use our VDI tech to securely issue temporary access to contractors without creating new SSO seats.
+**A:** Phase 1 is the Grey Market (Netflix, Spotify). Phase 2 is the Enterprise Arbitrage (Corporate perks, B2B SaaS, API Quotas). Phase 3 is becoming a legitimate B2B infrastructure provider where companies use our VDI tech to securely issue temporary access to contractors without creating new SSO seats.

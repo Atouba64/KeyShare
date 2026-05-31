@@ -1,7 +1,7 @@
 # KeyShare: Investor Business Plan
 
 ## 1. Executive Summary
-**The Problem:** The modern digital economy operates on subscriptions, from entertainment to enterprise-grade educational tools (EdTech). The average individual utilizes less than 20% of their subscription value, leading to massive resource waste. Concurrently, millions of global workers and students are priced out of premium platforms (e.g., Udemy Business, JetBrains, Pluralsight) needed to advance their careers. 
+**The Problem:** The modern digital economy operates on subscriptions, from entertainment to enterprise-grade B2B tools. The average professional/agency utilizes less than 20% of their subscription value, leading to massive resource waste. Concurrently, millions of global freelancers, independent consultants, and startups are priced out of premium platforms (e.g., ZoomInfo, JetBrains, Pluralsight, Figma Enterprise) needed to scale their businesses. 
 **The Solution:** KeyShare is a peer-to-peer (P2P) marketplace that connects individuals with unused subscription capacity (Servicers) to those seeking affordable, temporary access (Customers). 
 **The Differentiator:** Unlike competitors that rely on sharing raw passwords—which frequently triggers account bans due to "impossible travel" and violates Terms of Service—KeyShare acts as a technical "Negotiator." We offer a proprietary 3-Tier Security Architecture, including Remote Browser Isolation (VDI) and localized Residential VPNs, ensuring the Servicer's account remains completely secure and undetectable by platform algorithms.
 
@@ -12,7 +12,7 @@
 ## 3. Market Analysis (TAM, SAM, SOM)
 *   **Total Addressable Market (TAM):** The global digital subscription market is projected to reach $1.5 Trillion by 2025. 
 *   **Serviceable Available Market (SAM):** EdTech, B2B SaaS, and premium streaming markets where costs exceed $20/month per user (approx. $150 Billion).
-*   **Serviceable Obtainable Market (SOM):** The initial focus is the EdTech Arbitrage market—specifically targeting university students (e.g., WGU's 150,000+ students) who receive enterprise-tier licenses (Udemy Business, Pluralsight) for free, to connect them with self-taught developers globally.
+*   **Serviceable Obtainable Market (SOM):** The initial focus is the Enterprise SaaS Arbitrage market—specifically targeting corporate employees, digital agencies, and funded startups who possess unused enterprise-tier licenses (ZoomInfo, Ahrefs, Midjourney Pro, Pluralsight) to connect them with freelancers, bootstrappers, and solopreneurs globally.
 
 ## 4. Products & Services (The 3-Tier Model)
 To mitigate the inherent risks of account sharing, KeyShare offers tiered technical obfuscation:
@@ -29,7 +29,7 @@ KeyShare generates revenue through marketplace commissions and infrastructure ma
 *Example:* Servicer lists a $500/yr Udemy Business slot for $15/month. The Customer wants Gold Tier security. The Customer pays $23/month. KeyShare takes $8 (VDI) + $2.25 (15% Commission) = $10.25 Revenue per transaction. Servicer receives $12.75.
 
 ## 6. Go-To-Market (GTM) Strategy
-*   **Supply-Side Acquisition:** Target university alumni and student subreddits (e.g., r/WGU, r/college) with the value proposition: *"Turn your unused university email perks into $50/month passive income."*
+*   **Supply-Side Acquisition:** Target corporate alumni, agency owners, and tech employee forums (e.g., Blind, specialized subreddits) with the value proposition: *"Turn your unused corporate tech perks and idle weekend licenses into $500/month passive income."*
 *   **Demand-Side Acquisition:** Target coding bootcamps, international developer forums, and subreddits (r/learnprogramming) offering enterprise-grade learning tools at 80% off retail.
 *   **The Flywheel Effect:** Cross-pollination. A developer who rents Udemy Business to learn a skill may later list their newly purchased ChatGPT Plus account to offset costs.
 

@@ -112,7 +112,7 @@ export default function DashboardPage() {
                 <ul className="divide-y divide-neutral-800">
                   {[
                     { name: "Midjourney Pro", user: "alex_dev", time: "2h 45m left", price: "$5.00" },
-                    { name: "Udemy Business", user: "sarah_w", time: "1d 4h left", price: "$12.00" },
+                    { name: "Enterprise Learning", user: "sarah_w", time: "1d 4h left", price: "$12.00" },
                     { name: "ChatGPT Plus", user: "mike_r", time: "45m left", price: "$2.50" },
                   ].map((item, i) => (
                     <li key={i} className="p-6 flex items-center justify-between hover:bg-neutral-800/50 transition-colors cursor-pointer">
@@ -148,7 +148,7 @@ export default function DashboardPage() {
                   </div>
                   <div>
                     <div className="font-bold text-white">JetBrains CLion</div>
-                    <div className="text-xs text-neutral-400">Provider: @cs_student99</div>
+                    <div className="text-xs text-neutral-400">Provider: @agency_dev99</div>
                   </div>
                 </div>
 

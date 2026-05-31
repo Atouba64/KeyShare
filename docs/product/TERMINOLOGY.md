@@ -5,7 +5,7 @@ To ensure consistent communication across engineering, product, and business tea
 ## 1. The Servicer (aka "Shareant" or "Server")
 **Definition:** The individual who owns the original account, license, or subscription and is offering it up for lease on the platform.
 *   **Role:** Supply-side provider.
-*   **Motivations:** Recoup costs of unused subscriptions (e.g., WGU alumni with active alumni benefits, or current students monetizing unused Udemy/Pluralsight access).
+*   **Motivations:** Recoup costs of unused subscriptions (e.g., enterprise employees with active corporate benefits they don't use, agencies monetizing idle weekend seats, or startups selling off excess API credits).
 *   **Risks:** Account suspension due to impossible travel, TOS violations, or credential theft.
 
 ## 2. The Customer (aka "Searchant" or "Guest")

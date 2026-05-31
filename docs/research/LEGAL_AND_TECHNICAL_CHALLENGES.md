@@ -12,10 +12,9 @@ Almost all digital platforms have strict rules regarding account sharing.
 - **Risk:** If a KeyShare user rents out their Netflix account to someone across the country, Netflix will likely detect the IP discrepancy and lock the device or suspend the account.
 
 ### Educational & University Resources
-- **The WGU Example:** Sharing access to university-provided tools (Udemy Business, Pluralsight) presents a unique challenge.
-- **SSO (Single Sign-On):** University resources are usually gated behind a central SSO portal (e.g., Microsoft Entra ID, Okta). To give someone access to Udemy via WGU, the student would literally have to give the buyer their primary WGU login credentials.
-- **Academic Integrity:** This is a severe violation of university IT policies and the student code of conduct. If caught, the student risks expulsion.
-- **Data Privacy:** Giving out an SSO password gives the buyer access to the student's emails, financial aid info, and grades.
+- **The Corporate Example:** Sharing access to enterprise-provided tools (e.g., corporate learning portals, internal HR perk platforms) presents a unique challenge.
+- **SSO (Single Sign-On):** Corporate resources are usually gated behind a central SSO portal (e.g., Microsoft Entra ID, Okta). To give someone access to a learning tool via their employer, the employee would literally have to give the buyer their primary corporate login credentials, which is an immediate terminable offense.
+- **Data Privacy:** Giving out an SSO password gives the buyer access to the employee's internal company emails, HR data, and financial information.
 
 ## 2. Technical Hurdles
 

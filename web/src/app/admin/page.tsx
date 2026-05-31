@@ -66,7 +66,7 @@ export default function AdminOverviewPage() {
               { time: "Just now", event: "New Rental: Midjourney Pro", user: "alex_dev (US)", status: "Active" },
               { time: "2 mins ago", event: "Payout Processed: $42.50", user: "sarah_w (UK)", status: "Completed" },
               { time: "15 mins ago", event: "Session Flagged: Geo-mismatch", user: "mike_r (RU -> US)", status: "Suspended" },
-              { time: "1 hr ago", event: "New Listing: Udemy Business", user: "cs_student99", status: "Active" },
+              { time: "1 hr ago", event: "New Listing: Enterprise Learning", user: "agency_dev99", status: "Active" },
             ].map((row, i) => (
               <tr key={i} className="hover:bg-neutral-800/50 transition-colors">
                 <td className="px-6 py-4 text-neutral-400">{row.time}</td>

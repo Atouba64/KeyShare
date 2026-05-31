@@ -21,9 +21,9 @@ This model applies to single-seat accounts (e.g., a standard Chegg account, Chat
 
 ## 2. Navigating the University / SSO Problem
 
-As noted in the research, sharing university Single Sign-On (SSO) credentials is too risky for the seller (exposing personal, academic, and financial data). To facilitate the sharing of WGU/student resources safely:
+As noted in the research, sharing corporate Single Sign-On (SSO) credentials is too risky for the seller (exposing personal, HR, and financial data). To facilitate the sharing of enterprise resources safely:
 
-- **License Keys vs. Logins:** Some student benefits provide standalone activation keys (e.g., JetBrains IDEs, Sketch, Autodesk). KeyShare can facilitate the sale/rental of these specific keys rather than the whole account.
+- **License Keys vs. Logins:** Some enterprise benefits provide standalone activation keys (e.g., JetBrains IDEs, Sketch, Autodesk). KeyShare can facilitate the sale/rental of these specific keys rather than the whole account.
 - **Proxy Access / API Bridging (Future Scope):** Exploring complex ways to proxy traffic, though highly technically challenging and likely to break.
 - **Policy Enforcement:** KeyShare should actively warn users *against* sharing primary SSO portal passwords.
 

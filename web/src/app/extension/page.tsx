@@ -72,7 +72,7 @@ export default function ExtensionPage() {
                     <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">Renting</span>
                   </div>
                   <div className="bg-neutral-900 p-3 rounded-lg border border-neutral-800 flex justify-between items-center">
-                    <span className="text-sm font-medium text-neutral-300">Udemy Business</span>
+                    <span className="text-sm font-medium text-neutral-300">Enterprise Access</span>
                     <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Providing</span>
                   </div>
                 </div>

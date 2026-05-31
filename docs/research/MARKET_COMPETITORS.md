@@ -32,4 +32,4 @@ The current market contains several platforms attempting to solve the subscripti
 
 1. **The Market is Proven:** There is distinct, verified demand for this service. Users want to save money on subscriptions, and owners want to recoup costs.
 2. **Security is Paramount:** Successful competitors provide "credential vaults" rather than just telling users to message each other passwords. Some (like GoSplit) even enforce monthly password rotation.
-3. **Differentiation Opportunity:** Most existing platforms focus heavily on **Entertainment** (Netflix, Spotify). KeyShare can carve out a massive niche by focusing heavily on **B2B Software, AI Tools, and Educational Platforms** (like the WGU Udemy/Pluralsight example, Chegg, JetBrains), which are highly expensive and often underutilized.
+3. **Differentiation Opportunity:** Most existing platforms focus heavily on **Entertainment** (Netflix, Spotify). KeyShare can carve out a massive niche by focusing heavily on **B2B Software, AI Tools, and Professional Educational Platforms** (like corporate-sponsored Pluralsight, Chegg, JetBrains, enterprise Figma seats), which are highly expensive and often underutilized.

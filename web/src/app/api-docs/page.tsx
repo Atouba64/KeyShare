@@ -76,7 +76,7 @@ export default function ApiDocsPage() {
   "sessions": [
     {
       "id": "sess_892nf109f",
-      "service": "Udemy Business",
+      "service": "Enterprise Access",
       "expires_at": "2026-06-02T14:30:00Z",
       "remaining_seconds": 128400,
       "status": "active"

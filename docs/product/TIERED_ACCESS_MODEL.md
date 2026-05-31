@@ -33,6 +33,6 @@ The premium, bulletproof tier. The Customer never sees the credentials. Instead,
     1. KeyShare spins up a Virtual Machine (e.g., Windows Server or Linux with Kasm Workspaces).
     2. The Servicer logs into the target platform *once* on this VM, dropping the session cookie.
     3. The Customer remotes into this machine via their browser. They use the platform directly within the VM.
-*   **Best For:** High-security enterprise tools, Single Sign-On (SSO) gated resources (like WGU student portals, Okta-gated corporate accounts), and extremely sensitive platforms.
+*   **Best For:** High-security enterprise tools, Single Sign-On (SSO) gated resources (like corporate learning portals, Okta-gated agency accounts), and extremely sensitive platforms.
 *   **The Advantage:** Perfect security. The platform's security algorithms see the *exact same hardware footprint, MAC address, IP address, and browser fingerprint* every time. The Customer cannot steal the credentials because they never see the password—they only see an active session. 
 *   **Unit Economics:** Lowest margin percentage, but highest absolute dollar profit. High infrastructure costs (running EC2 instances/VMs), but we can charge a premium SaaS fee. Zero churn from account bans.

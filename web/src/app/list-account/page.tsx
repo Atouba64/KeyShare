@@ -17,7 +17,7 @@ export default function ListAccountPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Turn idle subscriptions into <span className="text-emerald-400">passive income.</span></h1>
           <p className="text-lg text-neutral-400 mb-8">
-            Got an expensive subscription you barely use? A student license sitting idle? Rent it out securely on KeyShare without ever giving away your password.
+            Got an expensive enterprise subscription your agency barely uses? A professional license sitting idle during the weekend? Rent it out securely on KeyShare without ever giving away your password.
           </p>
 
           <div className="space-y-6">

@@ -1,6 +1,6 @@
 # Architecture: Tier 3 Remote Lab (VDI) Setup
 
-Tier 3 is the core differentiator for KeyShare. It allows secure sharing of SSO-gated accounts (like WGU portals) without exposing the raw password to the Customer, bypassing geo-fencing, hardware footprinting, and impossible travel detection.
+Tier 3 is the core differentiator for KeyShare. It allows secure sharing of SSO-gated accounts (like corporate enterprise portals) without exposing the raw password to the Customer, bypassing geo-fencing, hardware footprinting, and impossible travel detection.
 
 ## Technical Approach: Browser Isolation & Remote Desktop
 
@@ -15,7 +15,7 @@ Instead of full VMs, we will use Dockerized Desktop Environments (e.g., **Kasm W
 
 #### 2. The Authentication Flow (The "Handshake")
 To prevent the Customer from seeing the password:
-1.  **Servicer Initialization:** The Servicer spins up the container via the KeyShare dashboard. They log into the container, open Chrome, log into WGU/Udemy, and check the "Remember Me" box. They then close the session. The session cookie is now saved in the container's persistent volume.
+1.  **Servicer Initialization:** The Servicer spins up the container via the KeyShare dashboard. They log into the container, open Chrome, log into their corporate portal or platform, and check the "Remember Me" box. They then close the session. The session cookie is now saved in the container's persistent volume.
 2.  **Customer Access:** The Customer purchases Tier 3 access. KeyShare grants them access to *that specific container*. When the Customer opens the browser inside the container, they are already logged in. 
 3.  **Credential Protection:** We block access to the browser's "Saved Passwords" settings via Chrome Enterprise Policies to ensure the Customer cannot extract the raw password.
 
