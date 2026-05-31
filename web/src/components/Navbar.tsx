@@ -41,15 +41,17 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden border-t border-neutral-800 bg-neutral-950 px-4 py-6 space-y-4 absolute w-full shadow-2xl">
-          <Link href="/marketplace" className="block text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>Marketplace</Link>
-          <Link href="/use-cases" className="block text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>Use Cases</Link>
-          <Link href="/how-it-works" className="block text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>How it Works</Link>
-          <hr className="border-neutral-800 my-4" />
-          <Link href="/login" className="block text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>Sign In</Link>
-          <Link href="/register" className="block w-full py-3 text-center bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-lg mt-2" onClick={() => setIsOpen(false)}>
+        <div className="md:hidden fixed inset-0 top-16 bg-neutral-950/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-start pt-12 space-y-8 px-6 h-[calc(100vh-64px)] overflow-y-auto">
+          <Link href="/marketplace" className="text-2xl text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>Marketplace</Link>
+          <Link href="/use-cases" className="text-2xl text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>Use Cases</Link>
+          <Link href="/how-it-works" className="text-2xl text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>How it Works</Link>
+          
+          <div className="w-16 h-px bg-neutral-800 my-4" />
+          
+          <Link href="/login" className="text-2xl text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>Sign In</Link>
+          <Link href="/register" className="w-full max-w-xs py-4 text-center bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold text-xl rounded-xl mt-4 shadow-[0_0_30px_-5px_rgba(16,185,129,0.3)]" onClick={() => setIsOpen(false)}>
             Get Started
           </Link>
         </div>

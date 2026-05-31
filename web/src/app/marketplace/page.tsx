@@ -91,7 +91,7 @@ export default function MarketplacePage() {
 
   return (
     <div className="pt-8 pb-20 container mx-auto px-4">
-      <div className="flex flex-col md:flex-row gap-8 items-center justify-between mb-8">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-between mb-8 text-center md:text-left">
         <div>
           <h1 className="text-3xl font-bold mb-2">Marketplace</h1>
           <p className="text-neutral-400">Find and rent premium access for a fraction of the cost.</p>

@@ -53,39 +53,39 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="py-24 bg-neutral-950">
+      <section className="py-16 md:py-24 bg-neutral-950">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">How KeyShare Works</h2>
-            <p className="text-neutral-400 max-w-xl mx-auto">We use Edge Reverse Proxying and Cloud Browser Isolation to ensure absolute zero-trust security. Passwords are never seen, and cookies never touch the renter's device.</p>
+            <p className="text-neutral-400 max-w-xl mx-auto px-2">We use Edge Reverse Proxying and Cloud Browser Isolation to ensure absolute zero-trust security. Passwords are never seen, and cookies never touch the renter's device.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl relative overflow-hidden group">
+            <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl relative overflow-hidden group text-center md:text-left">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Shield className="w-24 h-24 text-emerald-500" />
               </div>
-              <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20">
+              <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20 mx-auto md:mx-0">
                 1
               </div>
               <h3 className="text-xl font-bold mb-3">Secure Deposit</h3>
               <p className="text-neutral-400">Providers log in securely. The session token is encrypted and deposited directly into our secure Cloud Vault. Passwords are never stored.</p>
             </div>
-            <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl relative overflow-hidden group">
+            <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl relative overflow-hidden group text-center md:text-left">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Zap className="w-24 h-24 text-emerald-500" />
               </div>
-              <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20">
+              <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20 mx-auto md:mx-0">
                 2
               </div>
               <h3 className="text-xl font-bold mb-3">Edge Proxy Routing</h3>
               <p className="text-neutral-400">Renters browse through our Edge Proxy. The server injects the session cookie server-side. The renter receives full access without ever possessing the credentials.</p>
             </div>
-            <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl relative overflow-hidden group">
+            <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl relative overflow-hidden group text-center md:text-left">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Wallet className="w-24 h-24 text-emerald-500" />
               </div>
-              <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20">
+              <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20 mx-auto md:mx-0">
                 3
               </div>
               <h3 className="text-xl font-bold mb-3">Earn passive income</h3>
@@ -96,11 +96,11 @@ export default function Home() {
       </section>
 
       {/* Popular Categories */}
-      <section className="py-24 bg-neutral-900/30 border-y border-neutral-800">
+      <section className="py-16 md:py-24 bg-neutral-900/30 border-y border-neutral-800">
         <div className="container mx-auto px-4">
-          <div className="flex items-end justify-between mb-12">
+          <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-10 md:mb-12 text-center md:text-left gap-4">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Resources</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-2 md:mb-4">Popular Resources</h2>
               <p className="text-neutral-400">Rent what you need, exactly when you need it.</p>
             </div>
             <Link href="/marketplace" className="hidden md:flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium">
@@ -115,17 +115,17 @@ export default function Home() {
               { title: "Streaming", desc: "Netflix 4K, Disney+, Hulu", icon: MonitorPlay, price: "from $2/wknd" },
               { title: "Pro Tools", desc: "JetBrains, Adobe CC, Figma", icon: Zap, price: "from $5/day" },
             ].map((cat, i) => (
-              <Link href={`/marketplace?category=${cat.title.toLowerCase()}`} key={i} className="group bg-neutral-950 border border-neutral-800 p-6 rounded-2xl hover:border-emerald-500/50 transition-all hover:shadow-[0_0_30px_-15px_rgba(16,185,129,0.3)]">
+              <Link href={`/marketplace?category=${cat.title.toLowerCase()}`} key={i} className="group bg-neutral-950 border border-neutral-800 p-6 rounded-2xl hover:border-emerald-500/50 transition-all hover:shadow-[0_0_30px_-15px_rgba(16,185,129,0.3)] text-center sm:text-left flex flex-col items-center sm:items-start">
                 <cat.icon className="w-10 h-10 text-emerald-500 mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-bold mb-1">{cat.title}</h3>
                 <p className="text-sm text-neutral-400 mb-4">{cat.desc}</p>
-                <div className="text-emerald-400 font-medium text-sm">{cat.price}</div>
+                <div className="text-emerald-400 font-medium text-sm mt-auto">{cat.price}</div>
               </Link>
             ))}
           </div>
           
-          <div className="mt-8 text-center md:hidden">
-            <Link href="/marketplace" className="inline-flex items-center gap-2 text-emerald-400 font-medium">
+          <div className="mt-10 text-center md:hidden">
+            <Link href="/marketplace" className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-800 rounded-xl text-white font-medium hover:bg-neutral-700 transition-colors">
               View all marketplace <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -133,14 +133,14 @@ export default function Home() {
       </section>
       
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-20 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-emerald-950/20" />
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Stop paying for full months.</h2>
-          <p className="text-xl text-neutral-400 max-w-2xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Stop paying for full months.</h2>
+          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 px-2">
             Join thousands of users sharing the cost of premium subscriptions. Be smart about your software stack.
           </p>
-          <Link href="/register" className="inline-block px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all">
+          <Link href="/register" className="inline-block w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all">
             Get Started Today
           </Link>
         </div>

@@ -20,7 +20,7 @@ export default function OnboardingPage() {
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 bg-neutral-950">
       <div className="max-w-4xl w-full">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">How do you want to use KeyShare?</h1>
           <p className="text-xl text-neutral-400">You can always change this later or do both.</p>
         </div>

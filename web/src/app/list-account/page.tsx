@@ -11,7 +11,7 @@ export default function ListAccountPage() {
     <div className="pt-12 pb-24 container mx-auto px-4 max-w-5xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Left Side: Info */}
-        <div>
+        <div className="text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-medium mb-6 border border-emerald-500/20">
             Provider Program
           </div>
@@ -21,8 +21,8 @@ export default function ListAccountPage() {
           </p>
 
           <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="w-12 h-12 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-emerald-500">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
+              <div className="w-12 h-12 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-emerald-500 mx-auto md:mx-0">
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
@@ -31,8 +31,8 @@ export default function ListAccountPage() {
               </div>
             </div>
             
-            <div className="flex gap-4">
-              <div className="w-12 h-12 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-emerald-500">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
+              <div className="w-12 h-12 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-emerald-500 mx-auto md:mx-0">
                 <Clock className="w-6 h-6" />
               </div>
               <div>
@@ -41,8 +41,8 @@ export default function ListAccountPage() {
               </div>
             </div>
             
-            <div className="flex gap-4">
-              <div className="w-12 h-12 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-emerald-500">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
+              <div className="w-12 h-12 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-emerald-500 mx-auto md:mx-0">
                 <Banknote className="w-6 h-6" />
               </div>
               <div>

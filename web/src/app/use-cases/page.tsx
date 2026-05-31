@@ -18,7 +18,7 @@ export default function UseCasesPage() {
 
   return (
     <div className="pt-24 pb-20 container mx-auto px-4">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">25 Ways to Use KeyShare</h1>
         <p className="text-lg text-neutral-400">
           From scaling your startup to launching a solo consulting business, see how people are bridging the gap between expensive subscriptions and temporary needs.
