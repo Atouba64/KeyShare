@@ -24,11 +24,11 @@ export default function Home() {
             Securely rent premium software, e-learning platforms, and AI tools by the hour or day. Or securely monetize your idle subscriptions and turn them into passive income.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/marketplace" className="w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all shadow-[0_0_40px_-10px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2">
-              Browse Marketplace <ArrowRight className="w-5 h-5" />
+            <Link href="/register" className="w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all shadow-[0_0_40px_-10px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2">
+              Start Earning / Renting <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/list-account" className="w-full sm:w-auto px-8 py-4 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl transition-all border border-neutral-700 flex items-center justify-center gap-2">
-              Start Earning
+            <Link href="/marketplace" className="w-full sm:w-auto px-8 py-4 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl transition-all border border-neutral-700 flex items-center justify-center gap-2">
+              Browse Marketplace
             </Link>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">How KeyShare Works</h2>
-            <p className="text-neutral-400 max-w-xl mx-auto">We use advanced session proxying and API wrappers to ensure complete security. Passwords are never seen, and accounts are never compromised.</p>
+            <p className="text-neutral-400 max-w-xl mx-auto">We use Edge Reverse Proxying and Cloud Browser Isolation to ensure absolute zero-trust security. Passwords are never seen, and cookies never touch the renter's device.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -68,8 +68,8 @@ export default function Home() {
               <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20">
                 1
               </div>
-              <h3 className="text-xl font-bold mb-3">Install the Extension</h3>
-              <p className="text-neutral-400">Providers log into their accounts normally. The KeyShare extension securely encrypts and syncs the active session cookie—not the password.</p>
+              <h3 className="text-xl font-bold mb-3">Secure Deposit</h3>
+              <p className="text-neutral-400">Providers log in securely. The session token is encrypted and deposited directly into our secure Cloud Vault. Passwords are never stored.</p>
             </div>
             <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -78,8 +78,8 @@ export default function Home() {
               <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20">
                 2
               </div>
-              <h3 className="text-xl font-bold mb-3">Instant Access</h3>
-              <p className="text-neutral-400">Renters browse the marketplace and pay a micro-fee for time-bound access. KeyShare injects the session into their browser seamlessly.</p>
+              <h3 className="text-xl font-bold mb-3">Edge Proxy Routing</h3>
+              <p className="text-neutral-400">Renters browse through our Edge Proxy. The server injects the session cookie server-side. The renter receives full access without ever possessing the credentials.</p>
             </div>
             <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -140,7 +140,7 @@ export default function Home() {
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto mb-10">
             Join thousands of users sharing the cost of premium subscriptions. Be smart about your software stack.
           </p>
-          <Link href="/marketplace" className="inline-block px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all">
+          <Link href="/register" className="inline-block px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all">
             Get Started Today
           </Link>
         </div>

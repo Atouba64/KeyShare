@@ -31,11 +31,11 @@ export default function RootLayout({
               <Link href="/how-it-works" className="hover:text-emerald-400 transition-colors">How it Works</Link>
             </nav>
             <div className="flex items-center gap-4">
-              <Link href="/dashboard" className="text-sm font-medium text-neutral-300 hover:text-white transition-colors">
-                Dashboard
+              <Link href="/login" className="text-sm font-medium text-neutral-300 hover:text-white transition-colors">
+                Sign In
               </Link>
-              <Link href="/list-account" className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 text-sm font-semibold rounded-lg transition-colors">
-                List an Account
+              <Link href="/register" className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 text-sm font-semibold rounded-lg transition-colors">
+                Get Started
               </Link>
             </div>
           </div>
