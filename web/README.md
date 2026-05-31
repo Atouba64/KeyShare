@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KeyShare Web App
 
-## Getting Started
+## Live data setup
 
-First, run the development server:
+KeyShare now uses a real PostgreSQL database and JWT session auth. No placeholder marketplace or dashboard data.
+
+### 1. Create a free PostgreSQL database
+
+Recommended: [Neon](https://neon.tech) (free tier)
+
+1. Create a project
+2. Copy the connection string
+3. Add it to `web/.env` as `DATABASE_URL`
+
+### 2. Configure environment variables
+
+Copy `web/.env.example` to `web/.env` and set:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+DATABASE_URL="postgresql://..."
+JWT_SECRET="your-long-random-secret"
+ADMIN_EMAIL="your@email.com"   # optional — auto-admin on signup
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+For **Netlify**, add the same variables in:
+Site settings → Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Initialize the database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cd web
+npm install
+npm run db:push
+npm run dev
+```
 
-## Learn More
+### 4. User flow (real data)
 
-To learn more about Next.js, take a look at the following resources:
+1. **Sign up** at `/register` → account saved to PostgreSQL
+2. **Pick a role** at `/onboarding` → Renter, Provider, or Both
+3. **Providers** publish listings at `/list-account` → appear on `/marketplace`
+4. **Renters** click **Rent Access** → creates a real rental + escrow transaction
+5. **Dashboard** shows live stats, active rentals, and your listings
+6. **Admin** (`ADMIN_EMAIL` user) manages users at `/admin`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Roles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Role | Can rent | Can list |
+|------|----------|----------|
+| RENTER | Yes | No |
+| PROVIDER | No | Yes |
+| BOTH | Yes | Yes |
+| ADMIN | Yes | Yes + `/admin` |
 
-## Deploy on Vercel
+### Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Stripe payouts are tracked in escrow but not yet connected — rentals and transactions are real in the DB
+- Session bridge launch is the next infrastructure milestone
+- Run `npm run db:studio` to inspect live data locally

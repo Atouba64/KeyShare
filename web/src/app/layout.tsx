@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import { Key } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { getSession } from "@/lib/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,15 +13,17 @@ export const metadata: Metadata = {
   description: "Securely rent premium subscriptions and software licenses by the hour or day. Or, monetize your unused accounts safely.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getSession();
+
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-neutral-950 text-neutral-50 flex flex-col`}>
-        <Navbar />
+        <Navbar user={session?.user ?? null} />
         
         <main className="flex-1 flex flex-col">
           {children}

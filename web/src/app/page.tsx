@@ -1,7 +1,17 @@
 import Link from "next/link";
 import { ArrowRight, Zap, Shield, Wallet, Cpu, MonitorPlay, GraduationCap } from "lucide-react";
+import { getPlatformStats } from "@/lib/stats";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  let stats = { listingCount: 0, userCount: 0, rentalCount: 0 };
+  try {
+    stats = await getPlatformStats();
+  } catch {
+    // Database may be unavailable during static generation
+  }
+
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
@@ -38,16 +48,16 @@ export default function Home() {
       <section className="border-y border-neutral-800 bg-neutral-900/50 py-10">
         <div className="container mx-auto px-4 flex flex-wrap justify-center gap-12 lg:gap-24 text-center">
           <div>
-            <div className="text-3xl font-bold text-white mb-1">$2.5M+</div>
-            <div className="text-sm text-neutral-400">Saved by Users</div>
+            <div className="text-3xl font-bold text-white mb-1">{stats.userCount}</div>
+            <div className="text-sm text-neutral-400">Registered Users</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-white mb-1">15k+</div>
-            <div className="text-sm text-neutral-400">Active Listings</div>
+            <div className="text-3xl font-bold text-white mb-1">{stats.listingCount}</div>
+            <div className="text-sm text-neutral-400">Live Listings</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-white mb-1">Zero</div>
-            <div className="text-sm text-neutral-400">Passwords Shared</div>
+            <div className="text-3xl font-bold text-white mb-1">{stats.rentalCount}</div>
+            <div className="text-sm text-neutral-400">Completed Bookings</div>
           </div>
         </div>
       </section>

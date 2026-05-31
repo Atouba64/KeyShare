@@ -3,120 +3,92 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-// ------------------------------------------------------
-// User & Role Management
-// ------------------------------------------------------
-
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String    @unique
-  passwordHash  String?
-  
-  // ROLES: "RENTER", "PROVIDER", "BOTH", "ADMIN"
-  // Defaulting to empty, forced to pick during onboarding
-  role          String?   
-  
-  avatarUrl     String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id           String   @id @default(cuid())
+  name         String?
+  email        String   @unique
+  passwordHash String?
 
-  // Relationships
-  providedListings Listing[] @relation("ProviderListings")
-  rentals          Rental[]  @relation("RenterRentals")
+  // RENTER | PROVIDER | BOTH | ADMIN
+  role      String?
+  avatarUrl String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  providedListings Listing[]     @relation("ProviderListings")
+  rentals          Rental[]      @relation("RenterRentals")
   transactions     Transaction[]
 }
 
-// ------------------------------------------------------
-// Core Marketplace
-// ------------------------------------------------------
-
 model Listing {
-  id              String   @id @default(cuid())
-  providerId      String
-  provider        User     @relation("ProviderListings", fields: [providerId], references: [id])
-  
-  title           String
-  platformName    String   // e.g., "Udemy Business", "Midjourney"
-  category        String
-  
-  // Method of access: "BROWSER_SESSION", "API_WRAPPER", "CREDENTIALS"
-  connectionType  String   
-  
-  price           Float
-  priceUnit       String   // "HOURLY", "DAILY", "WEEKEND", "WEEKLY"
-  
-  // "ACTIVE", "PAUSED", "BANNED"
-  status          String   @default("ACTIVE")
-  
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id             String @id @default(cuid())
+  providerId     String
+  provider       User   @relation("ProviderListings", fields: [providerId], references: [id], onDelete: Cascade)
 
-  rentals         Rental[]
+  title          String
+  platformName   String
+  category       String
+  description    String?
+
+  // BROWSER_SESSION | API_WRAPPER | LICENSE_KEY
+  connectionType String
+
+  price     Float
+  priceUnit String // HOURLY | DAILY | WEEKEND | WEEKLY
+
+  status    String   @default("ACTIVE")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  rentals Rental[]
 }
 
 model Rental {
-  id              String   @id @default(cuid())
-  listingId       String
-  listing         Listing  @relation(fields: [listingId], references: [id])
-  
-  renterId        String
-  renter          User     @relation("RenterRentals", fields: [renterId], references: [id])
-  
-  startTime       DateTime
-  endTime         DateTime
-  
-  // "ACTIVE", "EXPIRED", "CANCELLED", "DISPUTED"
-  status          String   @default("ACTIVE")
-  
-  totalCost       Float
-  
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id        String  @id @default(cuid())
+  listingId String
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
 
-  transactions    Transaction[]
-  session         KeyShareSession?
+  renterId String
+  renter   User   @relation("RenterRentals", fields: [renterId], references: [id], onDelete: Cascade)
+
+  startTime DateTime
+  endTime   DateTime
+
+  status    String @default("ACTIVE")
+  totalCost Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  transactions Transaction[]
+  session      KeyShareSession?
 }
-
-// ------------------------------------------------------
-// Security & Tech Bridge
-// ------------------------------------------------------
 
 model KeyShareSession {
-  id              String   @id @default(cuid())
-  rentalId        String   @unique
-  rental          Rental   @relation(fields: [rentalId], references: [id])
-  
-  encryptedCookie String   // Encrypted payload stored at rest
-  proxyRegion     String?  // e.g., "US-EAST", matching provider's origin
-  
+  id       String @id @default(cuid())
+  rentalId String @unique
+  rental   Rental @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+
+  encryptedCookie String
+  proxyRegion     String?
   expiresAt       DateTime
-  
   createdAt       DateTime @default(now())
 }
 
-// ------------------------------------------------------
-// Escrow & Payments
-// ------------------------------------------------------
-
 model Transaction {
-  id              String   @id @default(cuid())
-  userId          String
-  user            User     @relation(fields: [userId], references: [id])
-  
-  rentalId        String?
-  rental          Rental?  @relation(fields: [rentalId], references: [id])
-  
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  rentalId String?
+  rental   Rental? @relation(fields: [rentalId], references: [id], onDelete: SetNull)
+
   amount          Float
-  
-  // "HELD_IN_ESCROW", "RELEASED_TO_PROVIDER", "REFUNDED", "FAILED"
-  status          String   @default("HELD_IN_ESCROW")
-  
+  status          String  @default("HELD_IN_ESCROW")
   stripePaymentId String?
-  
   createdAt       DateTime @default(now())
 }

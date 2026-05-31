@@ -1,9 +1,10 @@
 [build]
-  # Since the Next.js app is inside the 'web' folder, we tell Netlify to use it as the base
   base = "web"
-  command = "npm run build"
+  command = "npm run db:push && npm run build"
   publish = ".next"
 
-# Optional: specifically ensures Netlify uses the Next.js runtime
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "20"
