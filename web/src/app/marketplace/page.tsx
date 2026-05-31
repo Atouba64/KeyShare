@@ -109,25 +109,25 @@ export default function MarketplacePage() {
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar Filters */}
         <div className="w-full lg:w-64 flex-shrink-0">
-          <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 sticky top-24">
+          <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 lg:sticky top-24">
             <div className="flex items-center gap-2 mb-4">
               <Filter className="w-4 h-4 text-emerald-500" />
               <h3 className="font-semibold">Categories</h3>
             </div>
-            <ul className="space-y-2">
+            <ul className="flex overflow-x-auto hide-scrollbar lg:flex-col gap-2 space-y-0 lg:space-y-2 pb-2 lg:pb-0">
               {categories.map((cat, i) => (
-                <li key={i}>
+                <li key={i} className="flex-shrink-0">
                   <button 
                     onClick={() => setActiveCategory(cat.name)}
-                    className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${activeCategory === cat.name ? 'bg-emerald-500/10 text-emerald-400 font-medium' : 'text-neutral-400 hover:bg-neutral-800 hover:text-white'}`}
+                    className={`w-full flex items-center gap-2 lg:gap-3 px-3 py-2 rounded-lg text-sm transition-colors whitespace-nowrap lg:whitespace-normal ${activeCategory === cat.name ? 'bg-emerald-500/10 text-emerald-400 font-medium' : 'text-neutral-400 hover:bg-neutral-800 hover:text-white'}`}
                   >
-                    <cat.icon className="w-4 h-4" /> {cat.name}
+                    <cat.icon className="w-4 h-4 shrink-0" /> {cat.name}
                   </button>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8">
+            <div className="mt-6 lg:mt-8">
               <h3 className="font-semibold mb-4">Price Range</h3>
               <input type="range" className="w-full accent-emerald-500" />
               <div className="flex justify-between text-xs text-neutral-500 mt-2">

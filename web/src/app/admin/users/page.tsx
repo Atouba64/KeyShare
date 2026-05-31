@@ -12,8 +12,8 @@ export default function AdminUsersPage() {
         </button>
       </div>
 
-      <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden">
-        <table className="w-full text-left text-sm">
+      <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-x-auto">
+        <table className="w-full text-left text-sm min-w-[600px]">
           <thead className="bg-neutral-950 border-b border-neutral-800 text-neutral-400">
             <tr>
               <th className="px-6 py-4 font-medium">User</th>

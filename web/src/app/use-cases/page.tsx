@@ -25,9 +25,9 @@ export default function UseCasesPage() {
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4 mb-16">
+      <div className="flex overflow-x-auto hide-scrollbar sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 pb-4 sm:pb-0">
         {categories.map((cat, i) => (
-          <button key={i} className="px-6 py-2 rounded-full border border-neutral-700 bg-neutral-900 hover:border-emerald-500 hover:text-emerald-400 transition-colors flex items-center gap-2">
+          <button key={i} className="px-5 py-2 rounded-full border border-neutral-700 bg-neutral-900 hover:border-emerald-500 hover:text-emerald-400 transition-colors flex items-center gap-2 whitespace-nowrap shrink-0">
             <cat.icon className="w-4 h-4" /> {cat.name}
           </button>
         ))}

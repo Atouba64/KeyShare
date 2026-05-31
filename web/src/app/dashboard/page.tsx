@@ -21,7 +21,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <nav className="space-y-1 flex-1">
+        <nav className="flex-1 flex overflow-x-auto md:flex-col gap-2 md:gap-1 pb-2 md:pb-0 hide-scrollbar">
           {[
             { id: "overview", label: "Overview", icon: Activity },
             { id: "rentals", label: "Active Rentals", icon: Clock },
@@ -32,21 +32,21 @@ export default function DashboardPage() {
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 md:gap-3 px-4 py-2 md:py-3 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${
                 activeTab === item.id 
                   ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" 
-                  : "text-neutral-400 hover:bg-neutral-800 hover:text-white"
+                  : "text-neutral-400 hover:bg-neutral-800 hover:text-white border border-transparent"
               }`}
             >
-              <item.icon className="w-4 h-4" />
+              <item.icon className="w-4 h-4 shrink-0" />
               {item.label}
             </button>
           ))}
         </nav>
 
-        <div className="mt-auto pt-4 border-t border-neutral-800">
-          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 transition-colors">
-            <LogOut className="w-4 h-4" />
+        <div className="mt-4 md:mt-auto pt-4 border-t border-neutral-800">
+          <button className="w-full flex items-center justify-center md:justify-start gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 transition-colors">
+            <LogOut className="w-4 h-4 shrink-0" />
             Sign Out
           </button>
         </div>
@@ -56,12 +56,12 @@ export default function DashboardPage() {
       <div className="flex-1 p-6 md:p-10 overflow-y-auto">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="flex justify-between items-center mb-10">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-10">
             <div>
-              <h1 className="text-3xl font-bold mb-1">Welcome back, John!</h1>
-              <p className="text-neutral-400">Here's what's happening with your accounts today.</p>
+              <h1 className="text-2xl md:text-3xl font-bold mb-1">Welcome back, John!</h1>
+              <p className="text-sm md:text-base text-neutral-400">Here's what's happening with your accounts today.</p>
             </div>
-            <Link href="/list-account" className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 text-sm font-bold rounded-lg transition-colors shadow-[0_0_15px_-5px_rgba(16,185,129,0.4)]">
+            <Link href="/list-account" className="w-full sm:w-auto text-center px-4 py-3 sm:py-2 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 text-sm font-bold rounded-lg transition-colors shadow-[0_0_15px_-5px_rgba(16,185,129,0.4)]">
               + New Listing
             </Link>
           </div>
@@ -115,9 +115,9 @@ export default function DashboardPage() {
                     { name: "Enterprise Learning", user: "sarah_w", time: "1d 4h left", price: "$12.00" },
                     { name: "ChatGPT Plus", user: "mike_r", time: "45m left", price: "$2.50" },
                   ].map((item, i) => (
-                    <li key={i} className="p-6 flex items-center justify-between hover:bg-neutral-800/50 transition-colors cursor-pointer">
+                    <li key={i} className="p-4 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between hover:bg-neutral-800/50 transition-colors cursor-pointer gap-3 sm:gap-0">
                       <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20">
+                        <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20 shrink-0">
                           <Cpu className="w-5 h-5" />
                         </div>
                         <div>
@@ -125,7 +125,7 @@ export default function DashboardPage() {
                           <div className="text-xs text-neutral-500">Rented by @{item.user}</div>
                         </div>
                       </div>
-                      <div className="text-right">
+                      <div className="flex sm:block justify-between items-center sm:text-right border-t sm:border-0 border-neutral-800/50 pt-2 sm:pt-0">
                         <div className="text-sm font-bold text-emerald-400">+{item.price}</div>
                         <div className="text-xs text-neutral-500">{item.time}</div>
                       </div>
@@ -163,7 +163,7 @@ export default function DashboardPage() {
                   <div className="text-[10px] text-neutral-500 text-right">Expires at 8:00 PM EST</div>
                 </div>
 
-                <div className="mt-auto grid grid-cols-2 gap-3">
+                <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <button className="w-full py-2 bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium rounded-lg transition-colors border border-neutral-700">
                     Extend Time
                   </button>

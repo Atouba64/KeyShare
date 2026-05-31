@@ -64,7 +64,7 @@ export default function ListAccountPage() {
               <input type="text" placeholder="e.g., Udemy Business, Midjourney Pro" className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 transition-colors" />
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-neutral-300 mb-2">Category</label>
                 <select className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 transition-colors appearance-none text-neutral-400">
@@ -105,7 +105,7 @@ export default function ListAccountPage() {
 
             <div>
               <label className="block text-sm font-medium text-neutral-300 mb-2">Availability Schedule</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="flex items-center gap-3 p-3 rounded-lg border border-neutral-800 bg-neutral-950 cursor-pointer hover:border-emerald-500/50 transition-colors">
                   <input type="radio" name="availability" className="accent-emerald-500" defaultChecked />
                   <span className="text-sm text-neutral-300">Always Available</span>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { Key } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,34 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-neutral-950 text-neutral-50 flex flex-col`}>
-        <header className="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-md">
-          <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 text-xl font-bold text-emerald-400">
-              <Key className="w-6 h-6" />
-              <span>KeyShare</span>
-            </Link>
-            <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-300">
-              <Link href="/marketplace" className="hover:text-emerald-400 transition-colors">Marketplace</Link>
-              <Link href="/use-cases" className="hover:text-emerald-400 transition-colors">Use Cases</Link>
-              <Link href="/how-it-works" className="hover:text-emerald-400 transition-colors">How it Works</Link>
-            </nav>
-            <div className="flex items-center gap-4">
-              <Link href="/login" className="text-sm font-medium text-neutral-300 hover:text-white transition-colors">
-                Sign In
-              </Link>
-              <Link href="/register" className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 text-sm font-semibold rounded-lg transition-colors">
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </header>
+        <Navbar />
         
         <main className="flex-1 flex flex-col">
           {children}
         </main>
 
         <footer className="border-t border-neutral-800 bg-neutral-950 py-12 mt-12">
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <Link href="/" className="flex items-center gap-2 text-xl font-bold text-emerald-400 mb-4">
                 <Key className="w-6 h-6" />
