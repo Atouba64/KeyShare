@@ -32,10 +32,6 @@ const PRICE_UNIT_MAP: Record<string, string> = {
 export async function createListing(formData: FormData): Promise<ActionResult> {
   const user = await requireUser();
 
-  if (!user.role || !["PROVIDER", "BOTH", "ADMIN"].includes(user.role)) {
-    return { success: false, error: "You need a Provider account to list resources." };
-  }
-
   const platformName = String(formData.get("platformName") || "").trim();
   const categoryLabel = String(formData.get("category") || "");
   const connectionLabel = String(formData.get("connectionType") || "");
@@ -69,15 +65,11 @@ export async function createListing(formData: FormData): Promise<ActionResult> {
     },
   });
 
-  redirect("/dashboard?tab=listings");
+  redirect("/marketplace");
 }
 
 export async function createRental(listingId: string): Promise<ActionResult> {
   const user = await requireUser();
-
-  if (!user.role || !["RENTER", "BOTH", "ADMIN"].includes(user.role)) {
-    return { success: false, error: "You need a Renter account to rent resources." };
-  }
 
   const listing = await prisma.listing.findUnique({
     where: { id: listingId },

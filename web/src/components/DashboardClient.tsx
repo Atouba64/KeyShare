@@ -76,7 +76,6 @@ export default function DashboardClient({
   const activeTab = searchParams.get("tab") || "overview";
 
   const firstName = user.name?.split(" ")[0] || "there";
-  const canList = user.role && ["PROVIDER", "BOTH", "ADMIN"].includes(user.role);
 
   async function handleLogout() {
     await logoutUser();
@@ -139,12 +138,12 @@ export default function DashboardClient({
               <h1 className="text-2xl md:text-3xl font-bold mb-1">Welcome back, {firstName}!</h1>
               <p className="text-sm md:text-base text-neutral-400">Your live KeyShare activity.</p>
             </div>
-            {canList && (
+            {user.role !== "ADMIN" && (
               <Link
                 href="/list-account"
                 className="w-full sm:w-auto text-center px-4 py-3 sm:py-2 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 text-sm font-bold rounded-lg transition-colors"
               >
-                + New Listing
+                + List a resource
               </Link>
             )}
           </div>
@@ -196,15 +195,10 @@ export default function DashboardClient({
                   </div>
                   {providingRentals.length === 0 ? (
                     <div className="p-8 text-center text-neutral-500 text-sm">
-                      No one is renting your listings yet.
-                      {canList && (
-                        <>
-                          {" "}
-                          <Link href="/list-account" className="text-emerald-400 hover:underline">
-                            Publish a listing
-                          </Link>
-                        </>
-                      )}
+                      No one is renting your listings yet.{" "}
+                      <Link href="/list-account" className="text-emerald-400 hover:underline">
+                        Publish a listing
+                      </Link>
                     </div>
                   ) : (
                     <ul className="divide-y divide-neutral-800">
@@ -304,13 +298,9 @@ export default function DashboardClient({
               {listings.length === 0 ? (
                 <div className="p-10 text-center">
                   <p className="text-neutral-400 mb-4">You haven&apos;t published any listings yet.</p>
-                  {canList ? (
-                    <Link href="/list-account" className="inline-block px-6 py-3 bg-emerald-500 text-neutral-950 font-bold rounded-lg">
-                      Create your first listing
-                    </Link>
-                  ) : (
-                    <p className="text-sm text-neutral-500">Switch to a Provider account to list resources.</p>
-                  )}
+                  <Link href="/list-account" className="inline-block px-6 py-3 bg-emerald-500 text-neutral-950 font-bold rounded-lg">
+                    Create your first listing
+                  </Link>
                 </div>
               ) : (
                 <ul className="divide-y divide-neutral-800">

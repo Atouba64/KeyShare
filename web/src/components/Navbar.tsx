@@ -52,6 +52,9 @@ export default function Navbar({ user }: { user: SessionUser | null }) {
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-300">
           <Link href="/marketplace" className="hover:text-emerald-400 transition-colors">Marketplace</Link>
+          {user && (
+            <Link href="/list-account" className="hover:text-emerald-400 transition-colors">List a resource</Link>
+          )}
           <Link href="/use-cases" className="hover:text-emerald-400 transition-colors">Use Cases</Link>
           <Link href="/how-it-works" className="hover:text-emerald-400 transition-colors">How it Works</Link>
         </nav>
@@ -71,6 +74,9 @@ export default function Navbar({ user }: { user: SessionUser | null }) {
       {isOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-neutral-950/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-start pt-12 space-y-8 px-6 h-[calc(100vh-64px)] overflow-y-auto">
           <Link href="/marketplace" className="text-2xl text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>Marketplace</Link>
+          {user && (
+            <Link href="/list-account" className="text-2xl text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>List a resource</Link>
+          )}
           <Link href="/use-cases" className="text-2xl text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>Use Cases</Link>
           <Link href="/how-it-works" className="text-2xl text-neutral-300 hover:text-emerald-400 font-medium" onClick={() => setIsOpen(false)}>How it Works</Link>
 

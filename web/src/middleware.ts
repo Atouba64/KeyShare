@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { decrypt } from "@/lib/auth";
+import { defaultRedirectForRole } from "@/lib/navigation";
 
-const protectedRoutes = ["/dashboard", "/list-account", "/onboarding", "/admin"];
+const protectedRoutes = ["/dashboard", "/list-account", "/admin"];
 const authRoutes = ["/login", "/register"];
 
 export async function middleware(request: NextRequest) {
@@ -25,23 +26,18 @@ export async function middleware(request: NextRequest) {
 
   if (isAuthRoute && isLoggedIn) {
     const url = request.nextUrl.clone();
-    url.pathname = session?.user?.role ? "/dashboard" : "/onboarding";
+    const next = url.searchParams.get("next");
+    url.pathname = next && next.startsWith("/") && !next.startsWith("//")
+      ? next
+      : defaultRedirectForRole(session?.user?.role ?? null);
+    url.searchParams.delete("next");
     return NextResponse.redirect(url);
   }
 
   if (pathname.startsWith("/admin") && session?.user?.role !== "ADMIN") {
     const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
+    url.pathname = "/marketplace";
     return NextResponse.redirect(url);
-  }
-
-  if (pathname === "/list-account" && isLoggedIn) {
-    const role = session?.user?.role;
-    if (role && !["PROVIDER", "BOTH", "ADMIN"].includes(role)) {
-      const url = request.nextUrl.clone();
-      url.pathname = "/dashboard";
-      return NextResponse.redirect(url);
-    }
   }
 
   return NextResponse.next();
@@ -51,7 +47,6 @@ export const config = {
   matcher: [
     "/dashboard/:path*",
     "/list-account/:path*",
-    "/onboarding/:path*",
     "/admin/:path*",
     "/login",
     "/register",

@@ -63,12 +63,7 @@ export default function MarketplaceClient({
 
   async function handleRent(listingId: string) {
     if (!isLoggedIn) {
-      window.location.href = `/login?next=/marketplace`;
-      return;
-    }
-
-    if (!userRole || !["RENTER", "BOTH", "ADMIN"].includes(userRole)) {
-      setError("Switch to a Renter or Both account to rent listings.");
+      window.location.href = `/register?next=${encodeURIComponent("/marketplace")}`;
       return;
     }
 

@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { setSession, clearSession } from "@/lib/auth";
+import { defaultRedirectForRole, safeNextPath } from "@/lib/navigation";
 
 export type ActionResult = {
   success: boolean;
@@ -15,17 +16,22 @@ function isAdminEmail(email: string) {
   return adminEmail ? email.toLowerCase() === adminEmail : false;
 }
 
+function resolveRole(email: string) {
+  return isAdminEmail(email) ? "ADMIN" : "BOTH";
+}
+
 export async function registerUser(formData: FormData): Promise<ActionResult> {
-  const name = String(formData.get("name") || "").trim();
   const email = String(formData.get("email") || "").trim().toLowerCase();
   const password = String(formData.get("password") || "");
+  const nameInput = String(formData.get("name") || "").trim();
+  const next = safeNextPath(String(formData.get("next") || ""));
 
-  if (!name || !email || !password) {
-    return { success: false, error: "All fields are required." };
+  if (!email || !password) {
+    return { success: false, error: "Email and password are required." };
   }
 
-  if (password.length < 8) {
-    return { success: false, error: "Password must be at least 8 characters." };
+  if (password.length < 6) {
+    return { success: false, error: "Password must be at least 6 characters." };
   }
 
   const existing = await prisma.user.findUnique({ where: { email } });
@@ -34,7 +40,8 @@ export async function registerUser(formData: FormData): Promise<ActionResult> {
   }
 
   const passwordHash = await bcrypt.hash(password, 12);
-  const role = isAdminEmail(email) ? "ADMIN" : null;
+  const role = resolveRole(email);
+  const name = nameInput || email.split("@")[0];
 
   const user = await prisma.user.create({
     data: { name, email, passwordHash, role },
@@ -47,18 +54,19 @@ export async function registerUser(formData: FormData): Promise<ActionResult> {
     role: user.role,
   });
 
-  redirect(role ? "/dashboard" : "/onboarding");
+  redirect(next || defaultRedirectForRole(role));
 }
 
 export async function loginUser(formData: FormData): Promise<ActionResult> {
   const email = String(formData.get("email") || "").trim().toLowerCase();
   const password = String(formData.get("password") || "");
+  const next = safeNextPath(String(formData.get("next") || ""));
 
   if (!email || !password) {
     return { success: false, error: "Email and password are required." };
   }
 
-  const user = await prisma.user.findUnique({ where: { email } });
+  let user = await prisma.user.findUnique({ where: { email } });
   if (!user?.passwordHash) {
     return { success: false, error: "Invalid email or password." };
   }
@@ -68,6 +76,14 @@ export async function loginUser(formData: FormData): Promise<ActionResult> {
     return { success: false, error: "Invalid email or password." };
   }
 
+  // Backfill role for older accounts created before auto-role assignment
+  if (!user.role) {
+    user = await prisma.user.update({
+      where: { id: user.id },
+      data: { role: resolveRole(email) },
+    });
+  }
+
   await setSession({
     id: user.id,
     email: user.email,
@@ -75,16 +91,12 @@ export async function loginUser(formData: FormData): Promise<ActionResult> {
     role: user.role,
   });
 
-  if (!user.role) {
-    redirect("/onboarding");
-  }
-
-  redirect("/dashboard");
+  redirect(next || defaultRedirectForRole(user.role));
 }
 
 export async function logoutUser() {
   await clearSession();
-  redirect("/login");
+  redirect("/");
 }
 
 export async function updateUserRole(role: string): Promise<ActionResult> {

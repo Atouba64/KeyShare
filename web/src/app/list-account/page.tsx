@@ -19,10 +19,10 @@ export default async function ListAccountPage() {
             Provider Program
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Turn idle subscriptions into <span className="text-emerald-400">passive income.</span>
+            List a resource in <span className="text-emerald-400">under a minute.</span>
           </h1>
           <p className="text-lg text-neutral-400 mb-8">
-            Publish a live listing to the KeyShare marketplace. Real users can discover and rent your resource immediately.
+            Three fields. Live on the marketplace instantly. No extra setup.
           </p>
 
           <div className="space-y-6">

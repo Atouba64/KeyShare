@@ -34,11 +34,11 @@ export default async function Home() {
             Securely rent premium software, e-learning platforms, and AI tools by the hour or day. Or securely monetize your idle subscriptions and turn them into passive income.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/register" className="w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all shadow-[0_0_40px_-10px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2">
-              Start Earning / Renting <ArrowRight className="w-5 h-5" />
+            <Link href="/marketplace" className="w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all shadow-[0_0_40px_-10px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2">
+              Browse marketplace <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/marketplace" className="w-full sm:w-auto px-8 py-4 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl transition-all border border-neutral-700 flex items-center justify-center gap-2">
-              Browse Marketplace
+            <Link href="/register" className="w-full sm:w-auto px-8 py-4 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl transition-all border border-neutral-700 flex items-center justify-center gap-2">
+              Create free account
             </Link>
           </div>
         </div>
@@ -150,8 +150,8 @@ export default async function Home() {
           <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 px-2">
             Join thousands of users sharing the cost of premium subscriptions. Be smart about your software stack.
           </p>
-          <Link href="/register" className="inline-block w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all">
-            Get Started Today
+          <Link href="/marketplace" className="inline-block w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold rounded-xl transition-all">
+            Browse marketplace
           </Link>
         </div>
       </section>
